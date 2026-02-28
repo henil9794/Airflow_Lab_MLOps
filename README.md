@@ -1,4 +1,4 @@
-# 📊 Customer Churn Prediction Pipeline (Airflow & MLOps)
+# 📊 Customer Churn Prediction Pipeline
 
 ---
 
@@ -231,13 +231,15 @@ Airflow_Lab/
 ├── dags/
 │   └── airflow.py                        # DAG definition & branching logic
 ├── src/
-│   └── lab.py                            # ML logic (preprocessing & training)
+│   └── main.py                            # ML logic (preprocessing & training)
 ├── data/
 │   └── telco_customer_churn_dataset.csv
 ├── model/
 │   ├── temp_model.sav                    # Intermediate model storage
 │   └── model.sav                         # Final production model
 └── docker-compose.yaml                   # Docker configuration
+└── README.md
+└── requirements.txt
 ```
 
 #### Step 2: Docker Compose Configuration
@@ -259,7 +261,7 @@ app-airflow-webserver-1 | 127.0.0.1 - - [17/Feb/2023:09:34:29 +0000] "GET /healt
 #### Step 4: Access the Airflow Web Interface
 
 - Open a web browser and navigate to `http://localhost:8080`.
-- Log in with the credentials defined in your `docker-compose.yaml` (default: `airflow` / `airflow`).
+- Log in with the credentials defined in your `docker-compose.yaml`.
 - Once logged in, you will land on the Airflow DAGs overview page.
 
 #### Step 5: Trigger the DAG
