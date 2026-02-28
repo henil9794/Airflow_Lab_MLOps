@@ -261,7 +261,7 @@ Wait until you see the log message indicating the Airflow webserver is healthy:
 - Click the **▶ Trigger DAG** button to start a manual run.
 - Monitor task progress in the **Graph View**. Each task will turn green upon successful completion as shown in figure below.
 
-![Airflow Image](images\Airflow_DAG_Pipeline.png "Airflow")
+![Airflow Image](images/Airflow_DAG_Pipeline.png "Airflow")
 
 #### Step 6: Verify Pipeline Outputs
 
