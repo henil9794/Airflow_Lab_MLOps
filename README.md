@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-This project implements a containerized end-to-end Machine Learning pipeline using **Apache Airflow**. The goal is to predict customer churn using the **Telco Customer Churn** dataset. Unlike a standard script, this pipeline includes a **Quality Gate**: it only saves model if accuracy meets a specific threshold (**≥ 78%**).
+This project implements a containerized end-to-end Machine Learning pipeline using **Apache Airflow**. The goal is to predict customer churn using the **Telco Customer Churn** dataset. This pipeline includes a **Quality Gate**: it only saves model if accuracy meets a specific threshold (**≥ 78%**).
 
 ML Model:
 
