@@ -24,8 +24,6 @@ The project is decoupled into three main layers:
 
 ---
 
----
-
 ## Functions
 
 load_data(): Loads the Telco dataset from the data/ folder, serializes it using pickle, and encodes it to base64 for safe transfer through Airflow XComs.
@@ -33,8 +31,6 @@ load_data(): Loads the Telco dataset from the data/ folder, serializes it using 
 data_preprocessing(): Decodes the data, handles missing values in TotalCharges, encodes text categories into numbers using LabelEncoder, and scales features using StandardScaler.
 
 train_model(): Splits data into training (80%) and testing (20%) sets. Trains a RandomForestClassifier. Saves a temp_model.sav file and returns the accuracy score as a float.
-
----
 
 ---
 
@@ -148,7 +144,7 @@ The DAG (`Customer_Churn_Prediction_Pipeline`) consists of the following steps:
 3. **`train_churn_model_task`**
    - Trains a **Random Forest Classifier** and calculates accuracy on a 20% test set.
 
-4. **`evaluate_model_performance_task`** *(BranchPythonOperator)*
+4. **`evaluate_model_performance_task`**
    - Acts as the **Quality Gate**:
      - ✅ Accuracy **≥ 78%** → proceeds to `save_model_task`
      - ❌ Accuracy **< 78%** → proceeds to `low_accuracy_alert_task`
@@ -156,7 +152,7 @@ The DAG (`Customer_Churn_Prediction_Pipeline`) consists of the following steps:
 5. **`save_model_task`**
    - Overwrites the production `model.sav` with the newly trained version.
 
-6. **`low_accuracy_alert_task`** *(EmptyOperator)*
+6. **`low_accuracy_alert_task`**
    - Safely stops the pipeline if the quality threshold is not met.
 
 ---
@@ -181,13 +177,9 @@ Airflow_Lab/
 
 This section explains the logic in `dags/airflow.py`, which manages the **MLOps lifecycle**.
 
----
-
 ## 📋 Script Overview
 
 The DAG defines a workflow that includes a **Quality Gate**. If the model does not reach a **78% accuracy threshold**, it will not be moved to the production file path.
-
----
 
 ## 💡 Logic Highlights
 
@@ -254,9 +246,7 @@ docker compose up -d
 
 Wait until you see the log message indicating the Airflow webserver is healthy:
 
-```plaintext
-app-airflow-webserver-1 | 127.0.0.1 - - [17/Feb/2023:09:34:29 +0000] "GET /health HTTP/1.1" 200 141 "-" "curl/7.74.0"
-```
+`app-airflow-webserver-1 | 127.0.0.1 - - [17/Feb/2023:09:34:29 +0000] "GET /health HTTP/1.1" 200 141 "-" "curl/7.74.0"`
 
 #### Step 4: Access the Airflow Web Interface
 
