@@ -1,4 +1,4 @@
-# 📊 Customer Churn Prediction Pipeline
+# 📊 Customer Churn Prediction Pipeline (Airflow)
 
 ---
 
