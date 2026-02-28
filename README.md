@@ -7,6 +7,7 @@
 This project implements a containerized end-to-end Machine Learning pipeline using **Apache Airflow**. The goal is to predict customer churn using the **Telco Customer Churn** dataset. Unlike a standard script, this pipeline includes a **Quality Gate**: it only saves model if accuracy meets a specific threshold (**≥ 78%**).
 
 ML Model
+
 This script is designed for Supervised Learning to predict customer churn. It utilizes a Random Forest Classifier to determine the likelihood of a customer leaving based on the Telco Customer Churn dataset. It provides functionality to load data, perform advanced preprocessing (including numeric conversion and categorical encoding), train a model, and evaluate performance.
 
 ---
