@@ -8,7 +8,7 @@ This project implements a containerized end-to-end Machine Learning pipeline usi
 
 ML Model:
 
-This script is designed for Supervised Learning to predict customer churn. It utilizes a Random Forest Classifier to determine the likelihood of a customer leaving based on the Telco Customer Churn dataset. It provides functionality to load data, perform advanced preprocessing (including numeric conversion and categorical encoding), train a model, and evaluate performance.
+This script is designed for Supervised Learning to predict customer churn. It utilizes a Random Forest Classifier to determine the likelihood of a customer leaving based on the Telco Customer Churn dataset. It provides functionality to load data, perform preprocessing, train a model, and evaluate performance.
 
 ---
 
