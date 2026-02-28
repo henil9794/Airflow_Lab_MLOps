@@ -1,18 +1,18 @@
-# 📊 Customer Churn Prediction Pipeline (Airflow)
+# Customer Churn Prediction Pipeline (Airflow)
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This project implements a containerized end-to-end Machine Learning pipeline using **Apache Airflow**. The goal is to predict customer churn using the **Telco Customer Churn** dataset. Unlike a standard script, this pipeline includes a **Quality Gate**: it only saves model if accuracy meets a specific threshold (**≥ 78%**).
 
-ML Model
+ML Model:
 
 This script is designed for Supervised Learning to predict customer churn. It utilizes a Random Forest Classifier to determine the likelihood of a customer leaving based on the Telco Customer Churn dataset. It provides functionality to load data, perform advanced preprocessing (including numeric conversion and categorical encoding), train a model, and evaluate performance.
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 The project is decoupled into three main layers:
 
@@ -129,7 +129,7 @@ Cloud
     docker compose down
     ```
 
-## 🚀 Pipeline Tasks
+## Pipeline Tasks
 
 The DAG (`Customer_Churn_Prediction_Pipeline`) consists of the following steps:
 
@@ -146,8 +146,8 @@ The DAG (`Customer_Churn_Prediction_Pipeline`) consists of the following steps:
 
 4. **`evaluate_model_performance_task`**
    - Acts as the **Quality Gate**:
-     - ✅ Accuracy **≥ 78%** → proceeds to `save_model_task`
-     - ❌ Accuracy **< 78%** → proceeds to `low_accuracy_alert_task`
+     - Accuracy **≥ 78%** → proceeds to `save_model_task`
+     - Accuracy **< 78%** → proceeds to `low_accuracy_alert_task`
 
 5. **`save_model_task`**
    - Overwrites the production `model.sav` with the newly trained version.
@@ -157,7 +157,7 @@ The DAG (`Customer_Churn_Prediction_Pipeline`) consists of the following steps:
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 ```
 Airflow_Lab/
@@ -173,15 +173,15 @@ Airflow_Lab/
 
 ---
 
-# ⚙️ Airflow DAG Script
+# Airflow DAG Script
 
 This section explains the logic in `dags/airflow.py`, which manages the **MLOps lifecycle**.
 
-## 📋 Script Overview
+## Script Overview
 
 The DAG defines a workflow that includes a **Quality Gate**. If the model does not reach a **78% accuracy threshold**, it will not be moved to the production file path.
 
-## 💡 Logic Highlights
+## Logic Highlights
 
 ### Importing Logic
 
