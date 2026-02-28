@@ -94,6 +94,10 @@ Cloud
     # Output dir
     - ${AIRFLOW_PROJ_DIR:-.}/working_data:/opt/airflow/working_data
 
+    # Volumes
+    - ${AIRFLOW_PROJ_DIR:-.}/src:/opt/airflow/src
+    - ${AIRFLOW_PROJ_DIR:-.}/model:/opt/airflow/model
+
     # Change default admin credentials
     _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-test1}
     _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-test1}
